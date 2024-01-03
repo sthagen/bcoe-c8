@@ -3,19 +3,18 @@
 const { readFileSync } = require('fs')
 const { resolve } = require('path')
 const { spawnSync } = require('child_process')
-const { statSync } = require('fs')
+const { statSync, rm } = require('fs')
 const { dirname } = require('path')
 const c8Path = require.resolve('../bin/c8')
 const nodePath = process.execPath
 const tsNodePath = './node_modules/.bin/ts-node'
 const chaiJestSnapshot = require('chai-jest-snapshot')
-const rimraf = require('rimraf')
 
 require('chai')
   .use(chaiJestSnapshot)
   .should()
 
-before(cb => rimraf('tmp', cb))
+before(cb => rm('tmp', { recursive: true, force: true }, cb))
 
 beforeEach(function () {
   chaiJestSnapshot.configureUsingMochaContext(this)
@@ -82,7 +81,7 @@ beforeEach(function () {
         env: { NODE_DEBUG: 'c8' }
       })
       output.toString('utf8').should.match(
-        /Error: ENOENT: no such file or directory.*loaders\.js/
+        /Error: ENOENT: no such file or directory.*loader\.js/
       )
     })
 
@@ -352,7 +351,7 @@ beforeEach(function () {
     })
 
     describe('source-maps', () => {
-      beforeEach(cb => rimraf('tmp/source-map', cb))
+      beforeEach(cb => rm('tmp/source-map', { recursive: true, force: true }, cb))
 
       describe('TypeScript', () => {
         // Bugs:
