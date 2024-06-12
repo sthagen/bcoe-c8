@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.1.1](https://github.com/bcoe/c8/compare/v10.1.0...v10.1.1) (2024-06-11)
+
+
+### Bug Fixes
+
+* stop installing monocart-coverage-reports ([#535](https://github.com/bcoe/c8/issues/535)) ([13979a7](https://github.com/bcoe/c8/commit/13979a76b5b44fc6758f350bae4cb3febd60d75e))
+
+## [10.1.0](https://github.com/bcoe/c8/compare/v10.0.0...v10.1.0) (2024-06-11)
+
+
+### Features
+
+* add experimental monocart reports ([#521](https://github.com/bcoe/c8/issues/521)) ([2e5e297](https://github.com/bcoe/c8/commit/2e5e297ac024bf7af1bc72689b644e11d73eac89))
+
 ## [10.0.0](https://github.com/bcoe/c8/compare/v9.1.0...v10.0.0) (2024-06-10)
 
 
